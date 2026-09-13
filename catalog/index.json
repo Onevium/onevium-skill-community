@@ -3,10 +3,10 @@
   "releases": [
     {
       "manifest": {
-        "schemaVersion": 1,
+        "schemaVersion": 2,
         "id": "onevium/change-review",
         "name": "onevium-change-review",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "title": "Change review",
         "description": "Review local changes and produce findings with file evidence.",
         "publisher": "Onevium",
@@ -15,20 +15,31 @@
           {
             "name": "review-changes",
             "description": "Review a user-selected local code change for correctness, regression and missing validation. Use only when the user asks for a change review.",
-            "content": "Confirm the selected repository and change range. Read the actual diff and related consumers. Report only actionable findings with precise file positions and concrete triggering conditions. Separate confirmed behavior from untested concerns. Preserve unrelated work. Do not edit, commit, push or publish unless the user explicitly asks. If no actionable findings are found, say so and state the validation limits."
+            "content": "Confirm the selected repository and change range. Read the actual diff and related consumers. Report only actionable findings with precise file positions and concrete triggering conditions. Separate confirmed behavior from untested concerns. Preserve unrelated work. Do not edit, commit, push or publish unless the user explicitly asks. If no actionable findings are found, say so and state the validation limits.\n\nWhen performing the review, read references/review-checklist.md relative to this skill directory and use it to check evidence completeness. Load it only for a requested review."
+          }
+        ],
+        "icon": {
+          "symbol": "code",
+          "color": 1
+        },
+        "source": "https://github.com/Onevium/onevium-skill-community",
+        "assets": [
+          {
+            "path": "skills/review-changes/references/review-checklist.md",
+            "content": "# Change review checklist\n\n1. Identify the user-selected repository and exact diff.\n2. Trace changed producers and consumers; check call sites and persisted data contracts.\n3. For each suspected issue, record a concrete trigger and failing behavior.\n4. Validate scope isolation, cancellation and stale-response handling for asynchronous changes.\n5. Run only relevant tests; distinguish simulated, browser and native runtime evidence.\n6. Return actionable findings with file and line references; omit speculative or preference-only items.\n7. Report remaining validation limits. Preserve unrelated work and never publish without authorization.\n"
           }
         ]
       },
-      "digest": "76bd59fc6bd8ee73f7035e3af3aabc0ec22d3e0dbb1e49fa3ae15f7f25c1c2d8",
-      "releaseNotes": "Initial Onevium workflow. Runs locally in the selected scope.",
-      "publishedAt": "2026-09-13T10:30:00Z"
+      "digest": "877142e871024a5eb3bc650b2a88eda34f389e8e75ceb5fa79a83f0b23a9649c",
+      "releaseNotes": "Adds a local review checklist covering contract changes, async state and validation evidence, plus a distinct development icon. No connections or executable components are added.",
+      "publishedAt": "2026-09-13T10:40:00Z"
     },
     {
       "manifest": {
-        "schemaVersion": 1,
+        "schemaVersion": 2,
         "id": "onevium/customer-voice",
         "name": "onevium-customer-voice",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "title": "Customer voice",
         "description": "Turn selected customer feedback into an evidence-based theme report.",
         "publisher": "Onevium",
@@ -37,13 +48,28 @@
           {
             "name": "analyze-feedback",
             "description": "Analyze user-provided customer reviews or support feedback for a specified brand, store and time range, with traceable evidence.",
-            "content": "Confirm the brand or customer, source files, time range and output location. Use only selected inputs; do not reuse another customer’s data. Validate fields and missing values. Deduplicate records while preserving source identifiers and report the deduplication rule. Group feedback into themes; retain exact short evidence excerpts and their record references. Separate observations from interpretations and state sample bias. Never invent reviews, customer quotes, counts or statistical confidence. Write a report with sample counts, themes, evidence and suggested actions. Verify counts and output files. Do not upload source data to another service or contact customers without explicit authorization."
+            "content": "Confirm the brand or customer, source files, time range and output location. Use only selected inputs; do not reuse another customer’s data. Validate fields and missing values. Deduplicate records while preserving source identifiers and report the deduplication rule. Group feedback into themes; retain exact short evidence excerpts and their record references. Separate observations from interpretations and state sample bias. Never invent reviews, customer quotes, counts or statistical confidence. Write a report with sample counts, themes, evidence and suggested actions. Verify counts and output files. Do not upload source data to another service or contact customers without explicit authorization.\n\nBefore writing the report, read references/input-contract.md and references/report-template.md relative to this skill directory. Adapt the template to the selected data; keep missing fields explicit. These reference files are local and must be loaded only when using this skill."
+          }
+        ],
+        "icon": {
+          "symbol": "feedback",
+          "color": 2
+        },
+        "source": "https://github.com/Onevium/onevium-skill-community",
+        "assets": [
+          {
+            "path": "skills/analyze-feedback/references/report-template.md",
+            "content": "# Customer voice report\n\n## Scope\nBrand/store: [selected customer]\nPeriod: [start–end]\nSources: [file names; never include secrets]\n\n## Data quality\nInput rows: [n]\nUsable rows: [n]\nDuplicates removed: [n]\nMissing fields and excluded records: [rule and count]\n\n## Themes\n| Theme | Evidence records | Short exact excerpts | Impact | Proposed action |\n|---|---|---|---|---|\n\n## Limits\nDescribe sample coverage, selection bias and uncertain interpretations. Avoid population claims from a convenience sample.\n"
+          },
+          {
+            "path": "skills/analyze-feedback/references/input-contract.md",
+            "content": "# Recommended input fields\n\nrecord_id: stable non-identifying reference\nsource: review, support, interview, survey\ncreated_at: source timestamp\ntext: feedback supplied by the user\nbrand_or_store: user-selected scope\nrating: optional original value and scale\n\nDo not invent missing IDs from customer identities; generate row numbers if needed. Preserve original text separately from interpretation. Deduplication must state the rule and retain reference mapping. Do not combine different clients or stores without explicit user instruction.\n"
           }
         ]
       },
-      "digest": "a400c3ddda86aa1b0976c14996e8617bb46d9bc228dfdf2b448e0b2c911878d9",
-      "releaseNotes": "Initial Onevium workflow. Runs locally in the selected scope.",
-      "publishedAt": "2026-09-13T10:30:00Z"
+      "digest": "b1c6bf2e36358b8ce68c8fe7d9900216f3c5be7933638ffd1550ff1d6edbb9ec",
+      "releaseNotes": "Adds a local input contract and report template for traceable VOC analysis, plus a distinct feedback icon. No connections or executable components are added.",
+      "publishedAt": "2026-09-13T10:40:00Z"
     }
   ]
 }
