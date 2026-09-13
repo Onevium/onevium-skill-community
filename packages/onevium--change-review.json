@@ -1,9 +1,9 @@
 {
   "manifest": {
-    "schemaVersion": 1,
+    "schemaVersion": 2,
     "id": "onevium/change-review",
     "name": "onevium-change-review",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "title": "Change review",
     "description": "Review local changes and produce findings with file evidence.",
     "publisher": "Onevium",
@@ -12,10 +12,21 @@
       {
         "name": "review-changes",
         "description": "Review a user-selected local code change for correctness, regression and missing validation. Use only when the user asks for a change review.",
-        "content": "Confirm the selected repository and change range. Read the actual diff and related consumers. Report only actionable findings with precise file positions and concrete triggering conditions. Separate confirmed behavior from untested concerns. Preserve unrelated work. Do not edit, commit, push or publish unless the user explicitly asks. If no actionable findings are found, say so and state the validation limits."
+        "content": "Confirm the selected repository and change range. Read the actual diff and related consumers. Report only actionable findings with precise file positions and concrete triggering conditions. Separate confirmed behavior from untested concerns. Preserve unrelated work. Do not edit, commit, push or publish unless the user explicitly asks. If no actionable findings are found, say so and state the validation limits.\n\nWhen performing the review, read references/review-checklist.md relative to this skill directory and use it to check evidence completeness. Load it only for a requested review."
+      }
+    ],
+    "source": "https://github.com/Onevium/onevium-skill-community",
+    "icon": {
+      "symbol": "code",
+      "color": 1
+    },
+    "assets": [
+      {
+        "path": "skills/review-changes/references/review-checklist.md",
+        "content": "# Change review checklist\n\n1. Identify the user-selected repository and exact diff.\n2. Trace changed producers and consumers; check call sites and persisted data contracts.\n3. For each suspected issue, record a concrete trigger and failing behavior.\n4. Validate scope isolation, cancellation and stale-response handling for asynchronous changes.\n5. Run only relevant tests; distinguish simulated, browser and native runtime evidence.\n6. Return actionable findings with file and line references; omit speculative or preference-only items.\n7. Report remaining validation limits. Preserve unrelated work and never publish without authorization.\n"
       }
     ]
   },
-  "releaseNotes": "Initial Onevium workflow. Runs locally in the selected scope.",
-  "publishedAt": "2026-09-13T10:30:00Z"
+  "releaseNotes": "Adds a local review checklist covering contract changes, async state and validation evidence, plus a distinct development icon. No connections or executable components are added.",
+  "publishedAt": "2026-09-13T10:40:00Z"
 }

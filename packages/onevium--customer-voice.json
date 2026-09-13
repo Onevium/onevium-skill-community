@@ -1,9 +1,9 @@
 {
   "manifest": {
-    "schemaVersion": 1,
+    "schemaVersion": 2,
     "id": "onevium/customer-voice",
     "name": "onevium-customer-voice",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "title": "Customer voice",
     "description": "Turn selected customer feedback into an evidence-based theme report.",
     "publisher": "Onevium",
@@ -12,10 +12,25 @@
       {
         "name": "analyze-feedback",
         "description": "Analyze user-provided customer reviews or support feedback for a specified brand, store and time range, with traceable evidence.",
-        "content": "Confirm the brand or customer, source files, time range and output location. Use only selected inputs; do not reuse another customer’s data. Validate fields and missing values. Deduplicate records while preserving source identifiers and report the deduplication rule. Group feedback into themes; retain exact short evidence excerpts and their record references. Separate observations from interpretations and state sample bias. Never invent reviews, customer quotes, counts or statistical confidence. Write a report with sample counts, themes, evidence and suggested actions. Verify counts and output files. Do not upload source data to another service or contact customers without explicit authorization."
+        "content": "Confirm the brand or customer, source files, time range and output location. Use only selected inputs; do not reuse another customer’s data. Validate fields and missing values. Deduplicate records while preserving source identifiers and report the deduplication rule. Group feedback into themes; retain exact short evidence excerpts and their record references. Separate observations from interpretations and state sample bias. Never invent reviews, customer quotes, counts or statistical confidence. Write a report with sample counts, themes, evidence and suggested actions. Verify counts and output files. Do not upload source data to another service or contact customers without explicit authorization.\n\nBefore writing the report, read references/input-contract.md and references/report-template.md relative to this skill directory. Adapt the template to the selected data; keep missing fields explicit. These reference files are local and must be loaded only when using this skill."
+      }
+    ],
+    "source": "https://github.com/Onevium/onevium-skill-community",
+    "icon": {
+      "symbol": "feedback",
+      "color": 2
+    },
+    "assets": [
+      {
+        "path": "skills/analyze-feedback/references/report-template.md",
+        "content": "# Customer voice report\n\n## Scope\nBrand/store: [selected customer]\nPeriod: [start–end]\nSources: [file names; never include secrets]\n\n## Data quality\nInput rows: [n]\nUsable rows: [n]\nDuplicates removed: [n]\nMissing fields and excluded records: [rule and count]\n\n## Themes\n| Theme | Evidence records | Short exact excerpts | Impact | Proposed action |\n|---|---|---|---|---|\n\n## Limits\nDescribe sample coverage, selection bias and uncertain interpretations. Avoid population claims from a convenience sample.\n"
+      },
+      {
+        "path": "skills/analyze-feedback/references/input-contract.md",
+        "content": "# Recommended input fields\n\nrecord_id: stable non-identifying reference\nsource: review, support, interview, survey\ncreated_at: source timestamp\ntext: feedback supplied by the user\nbrand_or_store: user-selected scope\nrating: optional original value and scale\n\nDo not invent missing IDs from customer identities; generate row numbers if needed. Preserve original text separately from interpretation. Deduplication must state the rule and retain reference mapping. Do not combine different clients or stores without explicit user instruction.\n"
       }
     ]
   },
-  "releaseNotes": "Initial Onevium workflow. Runs locally in the selected scope.",
-  "publishedAt": "2026-09-13T10:30:00Z"
+  "releaseNotes": "Adds a local input contract and report template for traceable VOC analysis, plus a distinct feedback icon. No connections or executable components are added.",
+  "publishedAt": "2026-09-13T10:40:00Z"
 }
