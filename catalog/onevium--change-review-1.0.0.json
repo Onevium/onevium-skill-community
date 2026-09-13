@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "onevium/change-review",
+  "name": "onevium-change-review",
+  "version": "1.0.0",
+  "title": "Change review",
+  "description": "Review local changes and produce findings with file evidence.",
+  "publisher": "Onevium",
+  "category": "development",
+  "skills": [
+    {
+      "name": "review-changes",
+      "description": "Review a user-selected local code change for correctness, regression and missing validation. Use only when the user asks for a change review.",
+      "content": "Confirm the selected repository and change range. Read the actual diff and related consumers. Report only actionable findings with precise file positions and concrete triggering conditions. Separate confirmed behavior from untested concerns. Preserve unrelated work. Do not edit, commit, push or publish unless the user explicitly asks. If no actionable findings are found, say so and state the validation limits."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "releases": [
+    {
+      "manifest": {
+        "schemaVersion": 1,
+        "id": "onevium/change-review",
+        "name": "onevium-change-review",
+        "version": "1.0.0",
+        "title": "Change review",
+        "description": "Review local changes and produce findings with file evidence.",
+        "publisher": "Onevium",
+        "category": "development",
+        "skills": [
+          {
+            "name": "review-changes",
+            "description": "Review a user-selected local code change for correctness, regression and missing validation. Use only when the user asks for a change review.",
+            "content": "Confirm the selected repository and change range. Read the actual diff and related consumers. Report only actionable findings with precise file positions and concrete triggering conditions. Separate confirmed behavior from untested concerns. Preserve unrelated work. Do not edit, commit, push or publish unless the user explicitly asks. If no actionable findings are found, say so and state the validation limits."
+          }
+        ]
+      },
+      "digest": "76bd59fc6bd8ee73f7035e3af3aabc0ec22d3e0dbb1e49fa3ae15f7f25c1c2d8",
+      "releaseNotes": "Initial Onevium workflow. Runs locally in the selected scope.",
+      "publishedAt": "2026-09-13T10:30:00Z"
+    },
+    {
+      "manifest": {
+        "schemaVersion": 1,
+        "id": "onevium/customer-voice",
+        "name": "onevium-customer-voice",
+        "version": "1.0.0",
+        "title": "Customer voice",
+        "description": "Turn selected customer feedback into an evidence-based theme report.",
+        "publisher": "Onevium",
+        "category": "data",
+        "skills": [
+          {
+            "name": "analyze-feedback",
+            "description": "Analyze user-provided customer reviews or support feedback for a specified brand, store and time range, with traceable evidence.",
+            "content": "Confirm the brand or customer, source files, time range and output location. Use only selected inputs; do not reuse another customer’s data. Validate fields and missing values. Deduplicate records while preserving source identifiers and report the deduplication rule. Group feedback into themes; retain exact short evidence excerpts and their record references. Separate observations from interpretations and state sample bias. Never invent reviews, customer quotes, counts or statistical confidence. Write a report with sample counts, themes, evidence and suggested actions. Verify counts and output files. Do not upload source data to another service or contact customers without explicit authorization."
+          }
+        ]
+      },
+      "digest": "a400c3ddda86aa1b0976c14996e8617bb46d9bc228dfdf2b448e0b2c911878d9",
+      "releaseNotes": "Initial Onevium workflow. Runs locally in the selected scope.",
+      "publishedAt": "2026-09-13T10:30:00Z"
+    }
+  ]
+}

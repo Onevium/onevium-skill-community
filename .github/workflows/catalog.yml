@@ -1,0 +1,45 @@
+name: Validate and publish catalog
+on:
+  pull_request:
+  push:
+    branches: [main]
+    paths: ['packages/**', 'scripts/**', '.github/workflows/catalog.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm run build
+      - run: npm run check
+  publish:
+    if: github.event_name != 'pull_request'
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: publish-catalog
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm run build && npm run check
+      - name: Commit generated directory
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- catalog
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore: publish validated skill catalog'
+            git push origin HEAD:main
+          fi

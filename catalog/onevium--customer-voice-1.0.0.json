@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "onevium/customer-voice",
+  "name": "onevium-customer-voice",
+  "version": "1.0.0",
+  "title": "Customer voice",
+  "description": "Turn selected customer feedback into an evidence-based theme report.",
+  "publisher": "Onevium",
+  "category": "data",
+  "skills": [
+    {
+      "name": "analyze-feedback",
+      "description": "Analyze user-provided customer reviews or support feedback for a specified brand, store and time range, with traceable evidence.",
+      "content": "Confirm the brand or customer, source files, time range and output location. Use only selected inputs; do not reuse another customer’s data. Validate fields and missing values. Deduplicate records while preserving source identifiers and report the deduplication rule. Group feedback into themes; retain exact short evidence excerpts and their record references. Separate observations from interpretations and state sample bias. Never invent reviews, customer quotes, counts or statistical confidence. Write a report with sample counts, themes, evidence and suggested actions. Verify counts and output files. Do not upload source data to another service or contact customers without explicit authorization."
+    }
+  ]
+}
