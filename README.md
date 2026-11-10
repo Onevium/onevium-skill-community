@@ -2,6 +2,16 @@
 
 Onevium 的插件与技能分发目录。客户端将选定版本下载到本地，并按个人或项目范围启用。此仓库不收集会话、项目文件或客户数据。
 
+## 每日复盘 / Daily review
+
+官方包 [`onevium/daily-review`](packages/onevium--daily-review.json) 先从少量近期会话和明确反馈了解你的写作偏好，再整理简短日报、保留来源并把经验沉淀到资料空间。需要 Onevium 1.3.3 的资料空间工具，在扩展中心安装并按个人或项目范围启用。
+
+可以这样开始：“创建一个工作复盘资料空间。先看看我近期在这个项目中的沟通习惯，再把今天的工作整理成适合我的简短日报，保存到资料空间，并记录有依据的经验教训。”
+
+需要自动执行时再提出：“每天上午 9 点帮我复盘昨天的工作，保存到这个资料空间。”首次设置会核对范围、运行项目、模型和权限。安装本包不会自动创建定时任务；定时执行依赖运行 Onevium 的设备。日报、偏好和经验保存在使用者自己的资料空间。
+
+The official **Daily review** package adapts to your language and writing preferences from a small sample of relevant conversations, then saves concise work recaps and sourced lessons in Onevium Space. Start with: “Create a Work Review Space collection. Learn my communication preferences from recent conversations in this project, then save today's concise review and supported lessons to Onevium Space.” Ask for a daily schedule separately. Requires Onevium 1.3.3 Space tools; scheduled runs depend on the app running. This package's original content is MIT licensed; other packages retain their own licensing terms.
+
 ## 发布新技能
 
 1. 在 `packages/<publisher>--<name>.json` 添加提交文件，包含 `manifest`、`releaseNotes`、`publishedAt`。
